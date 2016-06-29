@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Top Spots Angular Error Handling</title>
+<!-- bower:css -->
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+<link rel="stylesheet" href="bower_components/toastr/toastr.css" />
+<!-- endbower -->
+
+<!-- inject:css -->
+<link rel="stylesheet" href="/app/Styles/styles.css">
+<!-- endinject -->
+</head>
+<!-- define controller as vm -->
+<body ng-controller="mainController as vm">
+<!-- making a table -->
+    <table class="table table-striped">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Location</th>
+        </tr>
+        <!-- looping thru the data in sd.json -->
+        <tr ng-repeat="data in vm.topSpots ">
+        <!-- looping data in name -->
+            <td>{{data.name}}</td>
+            <!-- looping data in description -->
+            <td>{{data.description}}</td>
+            <td>
+            <!-- looping data in location -->
+            <a ng-href="https://www.google.com/maps?q={{data.location[0]}},{{data.location[1]}}" class="btn btn-primary" >Open Map</a>
+            </td>
+        </tr>
+    </table>
+<!-- bower:js -->
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="bower_components/toastr/toastr.js"></script>
+<!-- endbower -->
+<!-- inject:js -->
+<script src="/app/app.js"></script>
+<script src="/app/mainController.js"></script>
+<script src="/app/mainFactory.js"></script>
+<!-- endinject -->
+</body>
+</html>
